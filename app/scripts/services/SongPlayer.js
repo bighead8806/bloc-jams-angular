@@ -45,7 +45,7 @@
                 playSong(song);
            }else if(currentSong === song){
                 if(currentBuzzObject.isPaused()){
-                    playSong();
+                    playSong(song);
                 }
             }
             
@@ -53,23 +53,18 @@
          /**
          *@function SongPlayer.pause(song)
          *@desc pause the currently playing song 
+         *@param {Object} song
+         *@return songPlayer
          */
         SongPlayer.pause = function(song) {
             currentBuzzObject.pause();
             song.playing = false;
- };
+        };
          
              currentBuzzObject = new buzz.sound(song.audioUrl, {
                 formats: ['mp3'],
                 preload: true
             });
-            
-            currentSong = song;
-            currentBuzzObject.play();
-            song.playing = true;
-            
-        }
-        };
          
           return SongPlayer;
      }
