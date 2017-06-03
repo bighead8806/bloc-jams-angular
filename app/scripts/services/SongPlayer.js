@@ -76,7 +76,7 @@
     *@desc Starts playing a song
     */
   
-  var playSong = function(currentSong) {
+  var playSong = function(song) {
             currentBuzzObject.play();
             song.playing = true;
         };
