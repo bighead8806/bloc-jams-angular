@@ -43,6 +43,7 @@
             if(currentSong !== song){
                 setSong(song);
                 playSong(song);
+                
            }else if(currentSong === song){
                 if(currentBuzzObject.isPaused()){
                     playSong(song);
@@ -74,7 +75,7 @@
     *@desc Starts playing a song
     */
   
-  var playSong = function(currentSong) {
+    var playSong = function(song) {
             currentBuzzObject.play();
             song.playing = true;
         };
