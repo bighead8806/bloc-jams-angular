@@ -62,7 +62,7 @@
             song.playing = false;
         };
          
-             currentBuzzObject = new buzz.sound(song.audioUrl, {
+             currentBuzzObject = new buzz.sound(currentSong.audioUrl, {
                 formats: ['mp3'],
                 preload: true
             });
