@@ -33,6 +33,16 @@
             
             currentSong = song;
         };
+         
+          /**
+    *@function playSong
+    *@desc Starts playing a song
+    */
+  
+           var playSong = function(song) {
+                currentBuzzObject.play();
+                song.playing = true;
+            };
         
         /**
         *@function SongPLayer.play
@@ -62,24 +72,9 @@
             song.playing = false;
         };
          
-             currentBuzzObject = new buzz.sound(song.audioUrl, {
-                formats: ['mp3'],
-                preload: true
-            });
-         
           return SongPlayer;
          
         }
- 
-    /**
-    *@function playSong
-    *@desc Starts playing a song
-    */
-  
-  var playSong = function(song) {
-            currentBuzzObject.play();
-            song.playing = true;
-        };
  
      angular
          .module('blocJams')
