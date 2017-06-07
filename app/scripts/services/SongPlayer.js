@@ -37,6 +37,16 @@
             
             SongPlayer.currentSong = song;
         };
+         
+          /**
+    *@function playSong
+    *@desc Starts playing a song
+    */
+  
+           var playSong = function(song) {
+                currentBuzzObject.play();
+                song.playing = true;
+            };
         
         /**
         *@function SongPLayer.play
@@ -90,16 +100,6 @@
           return SongPlayer;
          
         }
- 
-    /**
-    *@function playSong
-    *@desc Starts playing a song
-    */
-  
-  var playSong = function(song) {
-            currentBuzzObject.play();
-            song.playing = true;
-        };
  
      angular
          .module('blocJams')
