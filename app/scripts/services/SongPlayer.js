@@ -1,6 +1,12 @@
 (function() {
      function SongPlayer(Fixtures) {
         var SongPlayer = {};
+        
+        /**
+        *@desc Get fixtures info and assign it to currentAlbum
+        *@type {Object}
+        */
+         
         var currentAlbum = Fixtures.getAlbum();
         /**
          *@desc variable currentSong set to null
@@ -22,7 +28,8 @@
          
          var setSong = function(song) {
             if (currentBuzzObject) {
-                stopSong(song);
+                currentBuzzObject.stop();
+                SongPlayer.currentSong.playing = null;
             }
             
             currentBuzzObject = new buzz.sound(song.audioUrl, {
