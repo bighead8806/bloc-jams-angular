@@ -27,7 +27,9 @@
              };
  
              scope.fillStyle = function() {
-                 return {width: percentString()};
+                 return {width: percentString()
+                
+                };
              };
              
              scope.thumbStyle = function(){

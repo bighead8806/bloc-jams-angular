@@ -1,6 +1,12 @@
 (function() {
      function SongPlayer(Fixtures) {
         var SongPlayer = {};
+        
+        /**
+        *@desc Get fixtures info and assign it to currentAlbum
+        *@type {Object}
+        */
+         
         var currentAlbum = Fixtures.getAlbum();
         /**
          *@desc variable currentSong set to null
@@ -22,7 +28,7 @@
          
          var setSong = function(song) {
             if (currentBuzzObject) {
-                stopSong(song);
+                stopSong(SongPlayer.currentSong);
             }
             
             currentBuzzObject = new buzz.sound(song.audioUrl, {
@@ -103,7 +109,7 @@
             currentSongIndex--;
             
             if (currentSongIndex < 0) {
-                stopSong(song);
+                stopSong(SongPlayer.currentSong);
             } else {
                 var song = currentAlbum.songs[currentSongIndex];
                 setSong(song);
@@ -120,7 +126,7 @@
                 var currentSongIndex = getSongIndex(SongPlayer.currentSong);
                 currentSongIndex++;
                 
-                if (currentSongIndex > currentAlbum.length) {
+                if (currentSongIndex > currentAlbum.songs.length - 1) {
                     stopSong(SongPlayer.currentSong);
                 } 
                 else {
