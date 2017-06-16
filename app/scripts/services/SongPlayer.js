@@ -8,11 +8,12 @@
         */
          
         var currentAlbum = Fixtures.getAlbum();
+        
         /**
-         *@desc variable currentSong set to null
-        //@type {Object}
+        * @desc Current playback time (in seconds) of currently playing song
+        * @type {Number}
         */
-        SongPlayer.currentSong = null;
+        SongPlayer.currentTime = null;
          
         /**
         * @desc Buzz object audio file
@@ -75,7 +76,7 @@
         *@param {Object}song
         */ 
         SongPlayer.play = function(song) {
-            song = song || SongPlayer.currentSong;
+            song = song || SongPlayer.currentSong || currentAlbum.songs[0];
             if(SongPlayer.currentSong !== song){
                 setSong(song);
                 playSong(song);
@@ -138,6 +139,17 @@
                 return SongPlayer;
          
         }
+    
+            /**
+            * @function setCurrentTime
+            * @desc Set current time (in seconds) of currently playing song
+            * @param {Number} time
+            */
+            SongPlayer.setCurrentTime = function(time) {
+                if (currentBuzzObject) {
+                 currentBuzzObject.setTime(time);
+             }
+         };
     
      angular
          .module('blocJams')
