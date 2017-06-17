@@ -14,6 +14,13 @@
         * @type {Number}
         */
         SongPlayer.currentTime = null;
+            
+        /**
+        *@desc Current Volume 
+        *@type {Number}
+        */
+            
+        SongPlayer.volume = 75;
          
         /**
         * @desc Buzz object audio file
@@ -142,9 +149,6 @@
                 playSong(song);
                 }
             }
-                return SongPlayer;
-         
-        }
     
             /**
             * @function setCurrentTime
@@ -156,6 +160,18 @@
                  currentBuzzObject.setTime(time);
              }
          };
+    
+            SongPlayer.setVolume = function(volume){
+                if(currentBuzzObject){
+                    currentBuzzObject.setVolume(volume);
+                }
+                
+                SongPlayer.volume = volume;
+            };
+            
+         return SongPlayer;
+            
+        }
     
      angular
          .module('blocJams')
