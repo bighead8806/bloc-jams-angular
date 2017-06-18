@@ -38,17 +38,8 @@
              };
  
              scope.fillStyle = function() {
-                 return {width: percentString()
-                
-                };
+                 return {width: percentString()};
              };
-             
-             var notifyOnChange = function(newValue) {
-                    if (typeof scope.onChange === 'function') {
-                    scope.onChange({value: newValue});
-                    }
-                };
-             
              
              scope.onClickSeekBar = function(event) {
                 var percent = calculatePercent(seekBar, event);
@@ -71,9 +62,15 @@
                     $document.unbind('mouseup.thumb');
                 });
             };
-         }
-     };
- }
+             
+             var notifyOnChange = function(newValue) {
+                    if (typeof scope.onChange === 'function') {
+                    scope.onChange({value: newValue});
+                    }
+                };
+            }
+        };
+    }
  
      angular
          .module('blocJams')
