@@ -43,6 +43,10 @@
                 };
              };
              
+             scope.thumbStyle = function(){
+                 return{left: percentString()};
+             };
+             
              var notifyOnChange = function(newValue) {
                     if (typeof scope.onChange === 'function') {
                     scope.onChange({value: newValue});
