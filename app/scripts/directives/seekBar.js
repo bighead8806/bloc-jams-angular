@@ -41,6 +41,16 @@
                  return {width: percentString()};
              };
              
+             scope.thumbStyle = function(){
+                 return{left: percentString()};
+             };
+             
+             var notifyOnChange = function(newValue) {
+                    if (typeof scope.onChange === 'function') {
+                    scope.onChange({value: newValue});
+                    }
+                };
+             
              scope.onClickSeekBar = function(event) {
                 var percent = calculatePercent(seekBar, event);
                 scope.value = percent * scope.max;
